@@ -1,38 +1,29 @@
 import { Button, FormItem, Textarea } from "@vkontakte/vkui";
 import "@vkontakte/vkui/dist/vkui.css";
 import getCatFact from "../../api/catfact";
-import {  useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function CatfactForm() {
-  const [facts, setFacts] = useState('');
+  const [facts, setFacts] = useState("");
+  const [position, setPosition] = useState(0);
+  const textRef = useRef<HTMLTextAreaElement>(null);
 
   const handleClick = async () => {
     const fact = await getCatFact();
     if (fact) {
       setFacts(fact);
-      let pos =fact.trim().split(' ')[0].length
+      let pos = fact.trim().split(" ")[0].length;
       setPosition(pos);
-      console.log(pos);
-    
     }
-  }
-  
-  const [position, setPosition] = useState(0);
- 
-  const textRef = useRef<HTMLTextAreaElement>(null);
-  
- 
+  };
 
   useEffect(() => {
-  
     if (textRef.current) {
-    textRef.current.focus()
-    textRef.current.selectionStart = position;
-    textRef.current.selectionEnd = position;
-    console.log(textRef.current.selectionStart)
-            console.log('position', position);
- }
-  }, [facts,position]);
+      textRef.current.focus();
+      textRef.current.selectionStart = position;
+      textRef.current.selectionEnd = position;
+    }
+  }, [facts, position]);
 
   return (
     <>
@@ -41,17 +32,17 @@ export default function CatfactForm() {
           align="center"
           appearance="negative"
           rounded
-          stretched={false}
+          size="l"
           onClick={handleClick}
         >
           Click me
         </Button>
       </div>
-      <div style={{width: '1000px'}}>
-      <FormItem >
-          <Textarea  value={facts} getRef={textRef} onChange={handleClick}/>
+      <div style={{ width: "1000px" }}>
+        <FormItem>
+          <Textarea value={facts} getRef={textRef} />
         </FormItem>
-        </div>
+      </div>
     </>
   );
 }
