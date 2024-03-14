@@ -7,6 +7,7 @@ export default async function getAgeByName (name: string): Promise<number | null
       const data = await response.json() as AgifyResponse;
       return data.age;
     }
+    console.log(response)
     return null;
   } catch {
     return null;
