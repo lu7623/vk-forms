@@ -50,7 +50,7 @@ export default function AgifyForm() {
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-      searchTerm.length>0 && isValid && getAge(searchTerm);
+      searchTerm.length > 0 && isValid && getAge(searchTerm);
     }, 3000);
 
     return () => clearTimeout(delayDebounceFn);
@@ -69,41 +69,36 @@ export default function AgifyForm() {
   return (
     <>
       <FormLayoutGroup>
-      <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <FormItem
-            status={isValid ? 'valid' : 'error'}
-          bottom={
-           !isValid && errors
-          }>
-          <Input
-            onChange={handleChange}
-            value={searchTerm}
-            name="manName"
-              required
-             
-          />
-        </FormItem>
-        <FormItem>
-          <Button
-            type="submit"
-            appearance="positive"
-            size="m"
-            disabled={!isValid}
+            status={isValid ? "valid" : "error"}
+            bottom={!isValid && errors}
           >
-            Submit
-          </Button>
+            <Input
+              onChange={handleChange}
+              value={searchTerm}
+              name="manName"
+              required
+            />
           </FormItem>
-         
+          <FormItem>
+            <Button
+              type="submit"
+              appearance="positive"
+              size="m"
+              disabled={!isValid}
+            >
+              Submit
+            </Button>
+          </FormItem>
         </form>
-        </FormLayoutGroup>
+      </FormLayoutGroup>
       <div>
         {repeat.length > 0 && <p>{repeat}</p>}
         <p>
           Age: <span>{age}</span>{" "}
         </p>
-        </div>
-      
-      </>
-      
+      </div>
+    </>
   );
 }

@@ -30,7 +30,7 @@ export default function CatfactForm() {
       <div>
         <Button
           align="center"
-          appearance="negative"
+          appearance="positive"
           rounded
           size="l"
           onClick={handleClick}
@@ -38,7 +38,7 @@ export default function CatfactForm() {
           Click me
         </Button>
       </div>
-      <div style={{ width: "1000px" }}>
+      <div style={{ width: "800px" }}>
         <FormItem>
           <Textarea value={facts} getRef={textRef} />
         </FormItem>
