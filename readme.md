@@ -1,4 +1,10 @@
 <h3>Разработка React-приложения</h3>
+<h4>Для запуска локально:</h4>
+<code>cd vk-forms
+npm install
+npm run dev
+</code>
+<br>
 <p>Приложение должно состоять из нескольких частей:</p>
 <ol>
 <li>Блок с кнопкой и текстовым полем. По нажатию на кнопку выполнить запрос к&nbsp;<a href="https://vk.com/away.php?to=https%3A%2F%2Fcatfact.ninja%2Ffact&amp;utf=1" target="_blank">https://catfact.ninja/fact</a>. Полученный факт нужно записать в текстовое поле и установить курсор после первого слова.</li>
